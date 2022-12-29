@@ -49,6 +49,10 @@ EOF
 }
 ```
 
+> Linux 下的文件路径为：/etc/docker/daemon.json
+>
+> 重启命令：systemctl restart docker
+
 命令行登录：
 ```shell
 docker login 10.121.218.242:30002 -u admin -pHarbor12345
