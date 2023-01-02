@@ -57,3 +57,10 @@ EOF
 ```shell
 docker login 10.121.218.242:30002 -u admin -pHarbor12345
 ```
+
+## Harbor 用户配置
+用户可以通过配置环境变量 `CONFIG_OVERWRITE_JSON` 来[修改用户配置](https://goharbor.io/docs/2.5.0/install-config/configure-user-settings-cli/)：
+
+```
+CONFIG_OVERWRITE_JSON: '{"auth_mode":"oidc_auth", "oidc_name":"dex", "oidc_endpoint":"https://10.121.218.184:31392/api/dex", "oidc_client_id":"harbor", "oidc_client_secret":"rick", "oidc_admin_group":"infra-admin", "oidc_scope": "openid,offline_access,profile,groups,email", "oidc_user_claim":"username", "oidc_verify_cert":false, "oidc_auto_onboard":true}'
+```
