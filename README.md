@@ -28,6 +28,23 @@ spec:
         value: "false"
       - name: externalURL
         value: http://10.121.218.242:30002/             # 必须要设置外部访问地址
+      values: |
+        core:
+          extraEnvVars:
+          - name: configOverwriteJson
+            value: |
+              {
+                "auth_mode": "oidc_auth",
+                "oidc_admin_group": "infra-admin",
+                "oidc_auto_onboard": true,
+                "oidc_client_id": "harbor",
+                "oidc_client_secret": "rick",
+                "oidc_endpoint": "https://172.11.0.6:31392/api/dex",
+                "oidc_name": "dex",
+                "oidc_scope": "openid,offline_access,profile,groups,email",
+                "oidc_user_claim": "username",
+                "oidc_verify_cert": false
+              }
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
